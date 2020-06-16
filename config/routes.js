@@ -64,6 +64,8 @@ module.exports.routes = {
 
   'GET /admin/inicio-sesion': 'AdminController.inicioSesion',
 
+  
+
   'POST /admin/procesar-inicio-sesion': 'AdminController.procesarInicioSesion',
 
   'GET /admin/principal': 'AdminController.principal',
