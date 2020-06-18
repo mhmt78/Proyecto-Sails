@@ -37,6 +37,15 @@ module.exports = {
     respuesta.view('pages/admin/principal', { fotos })
   },
 
+  clientes: async (peticion, respuesta) => {
+    if (!peticion.session || !peticion.session.admin) {
+      peticion.addFlash('mensaje', 'Sesión inválida')
+      return respuesta.redirect("/admin/inicio-sesion")
+    }   
+    let clientes = await Cliente.find().sort("id")
+    respuesta.view('pages/admin/clientes', { clientes })  
+  },
+
   cerrarSesion: async (peticion, respuesta) => {
     peticion.session.admin = undefined
     peticion.addFlash('mensaje', 'Sesión finalizada')

@@ -64,8 +64,6 @@ module.exports.routes = {
 
   'GET /admin/inicio-sesion': 'AdminController.inicioSesion',
 
-  
-
   'POST /admin/procesar-inicio-sesion': 'AdminController.procesarInicioSesion',
 
   'GET /admin/principal': 'AdminController.principal',
@@ -79,6 +77,8 @@ module.exports.routes = {
   'GET /admin/desactivar-foto/:fotoId': 'AdminController.desactivarFoto',
 
   'GET /admin/activar-foto/:fotoId': 'AdminController.activarFoto',
+
+  'GET /admin/clientes': 'AdminController.clientes',
 
   /***************************************************************************
   *                                                                          *
