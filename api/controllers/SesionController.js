@@ -21,7 +21,8 @@ module.exports = {
       let cliente = await Cliente.create({
         email: peticion.body.email,
         nombre: peticion.body.nombre,
-        contrasena: peticion.body.contrasena
+        contrasena: peticion.body.contrasena,
+        activo: true
       })
       peticion.session.cliente = cliente;
       peticion.addFlash('mensaje', 'Cliente registrado')
