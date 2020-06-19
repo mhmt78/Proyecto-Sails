@@ -23,7 +23,7 @@ module.exports = {
       return respuesta.redirect("/admin/principal")
     }
     else {
-      peticion.addFlash('mensaje', 'Email o contraseña invalidos')
+      peticion.addFlash('mensaje', 'Email o contraseña invalidos / Usuario desactivado')
       return respuesta.redirect("/admin/inicio-sesion");
     }
   },
@@ -117,6 +117,19 @@ module.exports = {
     peticion.addFlash('mensaje', 'Foto activada')
     return respuesta.redirect("/admin/principal")
   },
+
+  activarCliente: async (peticion, respuesta) => {
+    await Cliente.update({id: peticion.params.clienteId}, {activo: true})
+    peticion.addFlash('mensaje', 'Cliente Activado')
+    return respuesta.redirect("/admin/clientes")
+  },
+
+  desactivarCliente: async (peticion, respuesta) => {
+    await Cliente.update({id: peticion.params.clienteId}, {activo: false})
+    peticion.addFlash('mensaje', 'Cliente Desactivado')
+    return respuesta.redirect("/admin/clientes")
+  },
+
 
 };
 
