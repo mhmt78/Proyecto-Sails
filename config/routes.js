@@ -82,6 +82,10 @@ module.exports.routes = {
 
   'GET /admin/administradores': 'AdminController.administradores',
 
+  'GET /admin/activar-administrador/:administradorId': 'AdminController.activarAdministrador',
+
+  'GET /admin/desactivar-administrador/:administradorId': 'AdminController.desactivarAdministrador',
+
   'GET /admin/ordenes/:clienteId': 'AdminController.ordenes',
 
   'GET /admin/fotos/:ordenId': 'AdminController.fotos',

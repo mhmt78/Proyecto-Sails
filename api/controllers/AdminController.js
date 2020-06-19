@@ -139,6 +139,17 @@ module.exports = {
     return respuesta.redirect("/admin/clientes")
   },
 
+  activarAdministrador: async (peticion, respuesta) => {
+    await Admin.update({id: peticion.params.administradorId}, {activo: true})
+    peticion.addFlash('mensaje', 'Administrador Activado')
+    return respuesta.redirect("/admin/administradores")
+  },
+
+  desactivarAdministrador: async (peticion, respuesta) => {
+    await Admin.update({id: peticion.params.administradorId}, {activo: false})
+    peticion.addFlash('mensaje', 'Administrador Desactivado')
+    return respuesta.redirect("/admin/administradores")
+  },
 
 };
 
