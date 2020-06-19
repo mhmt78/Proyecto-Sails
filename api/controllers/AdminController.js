@@ -15,7 +15,7 @@ module.exports = {
   },
 
   procesarInicioSesion: async (peticion, respuesta) => {
-    let admin = await Admin.findOne({ email: peticion.body.email, contrasena: peticion.body.contrasena })
+    let admin = await Admin.findOne({ email: peticion.body.email, contrasena: peticion.body.contrasena, activo:  true  })
     if (admin) {
       peticion.session.admin = admin
       peticion.session.cliente = undefined
@@ -74,6 +74,15 @@ module.exports = {
       let fotos = resultado.rows
       respuesta.view('pages/admin/fotos', { fotos })
     })
+  },
+
+  administradores: async (peticion, respuesta) => {
+    if (!peticion.session || !peticion.session.admin) {
+      peticion.addFlash('mensaje', 'Sesión inválida')
+      return respuesta.redirect("/admin/inicio-sesion")
+    }   
+    let administradores = await Admin.find().sort("id")
+    respuesta.view('pages/admin/administradores', { administradores })  
   },
 
   cerrarSesion: async (peticion, respuesta) => {

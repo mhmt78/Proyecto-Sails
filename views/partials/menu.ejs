@@ -18,7 +18,7 @@
         <%=session.cliente.nombre%></span>
     </li>
     <li class="nav-item">
-      <a class="btn btn-light mx-2" href="/mis-ordenes">Mis órdenes</a>
+      <a class="btn btn-light mx-2" href="/mis-ordenes">Mis ordenes</a>
     </li>
     <li class="nav-item">
       <a class="btn btn-light mx-2" href="/lista-deseo"><i class="fas fa-list-ul"></i></a>
@@ -39,10 +39,13 @@
         <%=session.admin.nombre%></span>
     </li>
     <li class="nav-item">
+      <a class="btn btn-light mx-2" href="/admin/principal">Principal</a>
+    </li>
+    <li class="nav-item">
       <a class="btn btn-light mx-2" href="/admin/clientes">Clientes</a>
     </li>
     <li class="nav-item">
-      <a class="btn btn-light mx-2" href="/admin/cerrar-sesion">Administradores</a>
+      <a class="btn btn-light mx-2" href="/admin/administradores">Administradores</a>
     </li>
     <li class="nav-item">
       <a class="btn btn-light mx-2" href="/admin/cerrar-sesion">Dashboard</a>
@@ -50,7 +53,6 @@
     <li class="nav-item">
       <a class="btn btn-light mx-2" href="/admin/cerrar-sesion">Cerrar Sesión</a>
     </li>
-    
 
     <% } else { %>
     <li class="nav-item">
