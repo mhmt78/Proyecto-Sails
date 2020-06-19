@@ -80,6 +80,10 @@ module.exports.routes = {
 
   'GET /admin/clientes': 'AdminController.clientes',
 
+  'GET /admin/ordenes/:clienteId': 'AdminController.ordenes',
+
+  'GET /admin/fotos/:ordenId': 'AdminController.fotos'
+
   /***************************************************************************
   *                                                                          *
   * More custom routes here...                                               *
